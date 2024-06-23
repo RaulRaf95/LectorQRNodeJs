@@ -1238,7 +1238,7 @@
   <script src="./plugin/jsvectormap/world.js"></script>
 
   <!-- Sweet Alert -->
-  <script src="./plugin/sweetalert/sweetalert.min.js"></script>
+  <!-- <script src="./plugin/sweetalert/sweetalert.min.js"></script> -->
 
   <!-- Kaiadmin JS -->
   <script src="./kaiadmin.min.js"></script>
@@ -1282,7 +1282,7 @@
   </script>
 
 
-  <script>
+  <script type="javascript">
     // var qr = document.querySelector("reader");
     let html5QrcodeScanner = new Html5QrcodeScanner(
       "reader",
@@ -1294,11 +1294,12 @@
       function onScanSuccess(decodedText, decodedResult) {
         // handle the scanned code as you like, for example:
         console.log(`Code matched = ${decodedText}`, decodedResult);
-        Swal.fire({
-          title: "Correcto",
-          text: decodedText,
-          icon: "success"
-        });
+        // Swal.fire({
+        //   title: "Correcto",
+        //   text: decodedText,
+        //   icon: "success"
+        // });
+        alert(decodedText)
         html5QrcodeScanner.clean()
       }
       
