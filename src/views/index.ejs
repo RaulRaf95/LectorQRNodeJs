@@ -1246,7 +1246,7 @@
   <!-- Kaiadmin DEMO methods, don't include it in your project! -->
   <script src="./setting-demo.js"></script>
   <script src="./demo.js"></script>
-  LECTOR QR
+  <!-- LECTOR QR -->
   <script src="./html5-qrcode/html5-qrcode.min.js"></script>
 
   <script>
@@ -1281,17 +1281,20 @@
 
   <script>
     // var qr = document.querySelector("reader");
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+      "reader",
+      { fps: 10, qrbox: {width: 250, height: 250} },
+      /* verbose= */ false);
 
     function onScanSuccess(decodedText, decodedResult) {
       // handle the scanned code as you like, for example:
       console.log(`Code matched = ${decodedText}`, decodedResult);
       Swal.fire({
-        // position: "top-end",
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500
+        title: "Correcto",
+        text: decodedText,
+        icon: "success"
       });
+      html5QrcodeScanner.clean()
     }
 
     function onScanFailure(error) {
@@ -1300,10 +1303,6 @@
       console.warn(`Code scan error = ${error}`);
     }
 
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-      "reader",
-      { fps: 10, qrbox: {width: 250, height: 250} },
-      /* verbose= */ false);
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 
   </script>
