@@ -1294,12 +1294,12 @@
       function onScanSuccess(decodedText, decodedResult) {
         // handle the scanned code as you like, for example:
         console.log(`Code matched = ${decodedText}`, decodedResult);
-        // Swal.fire({
-        //   title: "Correcto",
-        //   text: decodedText,
-        //   icon: "success"
-        // });
-        alert(decodedText)
+        Swal.fire({
+          title: "Correcto",
+          text: decodedText,
+          icon: "success"
+        });
+        // alert(decodedText)
         html5QrcodeScanner.clean()
       }
       
